@@ -6,16 +6,15 @@ void setup() {
 void draw() {
   background(#1C0BFF);
   beginning(400, 400);
-  if (keyPressed) {
-    if ( key == 'a') {
-      next();
-    } else if ( key == 's') {
-      following(mouseX, mouseY);
-    }
-  }
+   if (keyPressed) {
+     if ( key == 'a') {
+  next();
+
+     }
+   }
   /*if mousePressed(){
-   next();
-   } */
+  next();
+  } */
 }
 
 
@@ -23,7 +22,7 @@ void beginning(int x, int y) {
   strokeWeight(4);
   frameRate(15);
   fill(255, 0, 0);
-  triangle( 400, 400, 30, 795, 770, 795);
+  triangle( 400, 400, 30, 780, 770, 780);
   for ( int i=0; i<100; i++) {
     a = random(80, 750);
     b = random(50, 680);
@@ -45,7 +44,7 @@ void beginning(int x, int y) {
 void next() { 
   background(0);
   frameRate(22);
-
+  
   for ( int i= 0; i < 100; i++) {
     stroke(#CF3046);
     fill(0);
@@ -58,13 +57,4 @@ void next() {
   quad( 380, 385, 420, 385, 380, 415, 420, 415);
 }
 
-void following(int x, int y) {
-  //for ( int i= 0; i < 100; i++) {}
-  stroke(#D322EB);
-  fill(#BFFCFF);
-  triangle(x, y, x +50, y+100, 400, 400);
-  quad(x- 150, y-50, x -150, y-150, 385, 395, 385, 405);
-  stroke(#30C6CF);
-  fill(#E8EB87);
-  quad( 380, 385, 420, 385, 380, 415, 420, 415);
-}
+ 
