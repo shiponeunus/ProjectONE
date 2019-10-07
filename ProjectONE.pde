@@ -1,4 +1,4 @@
-float a, b, c, d, e, f, g;
+float a, b, c, d, e, f, g, k, l;
 int h= 0;
 void setup() {
   size( 800, 800);
@@ -7,9 +7,9 @@ void draw() {
   background(#1C0BFF);
   beginning(400, 400);
   if (keyPressed) {
-    if ( key == 'a') {
+    if ( key == 's') {
       next();
-    } else if ( key == 's') {
+    } else if ( key == 'a') {
       following(mouseX, mouseY);
     } else if ( key == 'd') {
       after();
@@ -80,33 +80,64 @@ void following(int x, int y) {
 }
 void after() {
   background(0);
+
   stroke(#46D14A);
   line(350, 500, 350, 250);
   line(450, 500, 450, 250);
   line( 350, 500, 450, 500);
-  
   line( 350, 250, 0, 0);
   line(450, 250, 800, 0);
   line( 350, 500, 0, 800);
   line(350, 250, 450, 250);
   line( 450, 500, 800, 800);
 
+  /* strokeWeight(2);
+   stroke(0);
+   fill(#FFF4AE);
+   circle( mouseX+50, mouseY-30, 15);*/
+
+  if ( mouseY+50 <= 800 && mouseY-80 >= 500) {
+    int x=0; 
+    int y= 0;
+    for ( int i=0; i<100; i++) {
+
+      strokeWeight(3);
+      stroke(#23FFEB); 
+      line( x, 500, 350+x, 800); //vertical line
+      line(300-x, 550+y, 400+x, 550); // horizontal line
+      x += 20;
+      y+= 20;
+      k= random(-50, 100);
+      l = random( 25, 60);
+      fill(#EB213E);
+      circle( 400 + k, 600+k, l);
+
+      strokeWeight(3);
+      stroke(#3E2DED);
+      fill(#A1D1C8);
+      quad(450, 500, 450, 250, 800, 0, 800, 800);
+      quad(350, 500, 0, 800, 0, 0, 350, 250);
+      quad( 0, 0, 800, 0, 500, 275, 300, 250);
+    }
+  } 
+  if (mouseX -50 >=0 && mouseX<= 300 ) {
+    fill(#A1D16D);
+    quad(350, 500, 0, 800, 0, 0, 350, 250);
+quad(450, 500, 450, 250, 800, 0, 800, 800);
+    stroke(#FFE100);
+    fill(0);
+    ellipse(mouseX+10, mouseY-30, 50, 100);
+    ellipse( mouseX+10, mouseY- 30, 45, 90);
+    ellipse(mouseX+ 500, mouseY-30, 50, 100);
+    ellipse(mouseX+500, mouseY-30, 45, 90);
+  } 
+  strokeWeight(3);
+  stroke(#3422EB);
+  fill(#FF47AF);
+  quad( 380, 385, 420, 385, 380, 415, 420, 415);
 
   strokeWeight(2);
   stroke(0);
   fill(#FFF4AE);
-  circle( mouseX+50, mouseY-80, 15);
-  /* want to make lines look like teradmill coming out from underneath above and sides
-  while(h<500){
-    strokeWeight(5);
-    stroke(#7B39D1);
-    line ( 380, 500, 350, 500+h);
-    h+=20;
-  } */ 
-  strokeWeight(3);
-  stroke(#30C6CF);
-  fill(#C5FFCD);
-  quad( 380, 385, 420, 385, 380, 415, 420, 415);
-
-  
+  circle( mouseX+50, mouseY-30, 15);
 }
