@@ -1,5 +1,11 @@
-float a, b, c, d, e, f, g, k, l;
+float a, b, c, d, e, f, v, k, l;
 int h= 0;
+float r= random(100, 255);
+float g= random(100, 255);
+float n= random(100, 255);
+Object o = new Object( 20, 2.0);
+Object p = new Object( 100, 9.0);
+Object u = new Object( 400, 15.0);
 void setup() {
   size( 800, 800);
 }
@@ -13,6 +19,10 @@ void draw() {
       following(mouseX, mouseY);
     } else if ( key == 'd') {
       after();
+    } else if ( key == 'f') {
+      o.then();
+      p.then();
+      u.then();
     }
   }
 }
@@ -50,7 +60,7 @@ void next() {
     fill(0);
     e = random(20, 950);
     f = random(30, 350);
-    g= random(30, 80);
+    v= random(30, 80);
     circle( 400, 400, e);
     circle( 400, 400, e+100);
     stroke(#EB6916);
@@ -90,11 +100,6 @@ void after() {
   line( 350, 500, 0, 800);
   line(350, 250, 450, 250);
   line( 450, 500, 800, 800);
-
-  /* strokeWeight(2);
-   stroke(0);
-   fill(#FFF4AE);
-   circle( mouseX+50, mouseY-30, 15);*/
 
   if ( mouseY+50 <= 800 && mouseY-80 >= 500) {
     int x=0; 
@@ -155,9 +160,7 @@ void after() {
     fill(#00EEFF);
     quad( 0, 0, 800, 0, 450, 250, 350, 250);
     for (int i = 0; i < 100; i++) {
-      float r= random(100, 255);
-      float g= random(100, 255);
-      float n= random(100, 255);
+
       stroke(0, g, n);
       rotate(0.1);
       scale(1.01);
@@ -183,4 +186,24 @@ void after() {
   stroke(0);
   fill(#FFF4AE);
   circle( mouseX+50, mouseY-30, 15);
+}
+
+class Object {
+  float ypos, speed; 
+
+  Object ( float y, float s) {
+    
+    ypos = y;
+    speed = s;
+  }
+
+  void then() {
+    fill( #E52B79);
+    ypos += speed; 
+    if (ypos > height) { 
+      ypos = 0;
+    } 
+ 
+    line(0, ypos, width, ypos);
+  }
 }
