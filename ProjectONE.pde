@@ -3,9 +3,9 @@ int h= 0;
 float r= random(100, 255);
 float g= random(100, 255);
 float n= random(100, 255);
-Object o = new Object( 20, 2.0);
-Object p = new Object( 100, 9.0);
-Object u = new Object( 400, 15.0);
+Object o = new Object( 20, 28);
+Object p = new Object( 200, 23);
+Object u = new Object( 100, 20 );
 void setup() {
   size( 800, 800);
 }
@@ -20,6 +20,7 @@ void draw() {
     } else if ( key == 'd') {
       after();
     } else if ( key == 'f') {
+      background(0);
       o.then();
       p.then();
       u.then();
@@ -192,18 +193,19 @@ class Object {
   float ypos, speed; 
 
   Object ( float y, float s) {
-    
+
     ypos = y;
     speed = s;
   }
 
   void then() {
+    //background(0);
     fill( #E52B79);
     ypos += speed; 
+    rect( 600, ypos, width/4, ypos/3);
+    line(0, ypos, width, ypos);
     if (ypos > height) { 
       ypos = 0;
-    } 
- 
-    line(0, ypos, width, ypos);
+    }
   }
 }
