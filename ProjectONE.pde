@@ -123,7 +123,7 @@ void after() {
   if (mouseX -50 >=0 && mouseX<= 300 ) {
     fill(#A1D16D);
     quad(350, 500, 0, 800, 0, 0, 350, 250);
-quad(450, 500, 450, 250, 800, 0, 800, 800);
+    quad(450, 500, 450, 250, 800, 0, 800, 800);
     stroke(#FFE100);
     fill(0);
     ellipse(mouseX+10, mouseY-30, 50, 100);
@@ -131,6 +131,49 @@ quad(450, 500, 450, 250, 800, 0, 800, 800);
     ellipse(mouseX+ 500, mouseY-30, 50, 100);
     ellipse(mouseX+500, mouseY-30, 45, 90);
   } 
+  if ( mouseX-50 >= 400 && mouseX <=800) {
+    fill(#FFB366);
+    quad(350, 500, 0, 800, 0, 0, 350, 250);
+    quad(450, 500, 450, 250, 800, 0, 800, 800);
+    stroke(#FFE100);
+    fill(0);
+    ellipse(mouseX+60, mouseY-30, 50, 100);
+    ellipse( mouseX+60, mouseY- 30, 45, 90);
+    ellipse(mouseX- 500, mouseY-30, 50, 100);
+    ellipse(mouseX-500, mouseY-30, 45, 90);
+  }
+  if ( mouseY-30 <=250 && mouseY-30 >= 0) {
+    strokeWeight(3);
+    stroke(#3422EB);
+    fill(#66FF7D);
+    quad( 380, 385, 420, 385, 380, 415, 420, 415);
+    strokeWeight(2);
+    stroke(0);
+    fill(#FFF4AE);
+    circle( mouseX+50, mouseY-30, 15);
+    stroke(#E52BFF);
+    fill(#00EEFF);
+    quad( 0, 0, 800, 0, 450, 250, 350, 250);
+    for (int i = 0; i < 100; i++) {
+      float r= random(100, 255);
+      float g= random(100, 255);
+      float n= random(100, 255);
+      stroke(0, g, n);
+      rotate(0.1);
+      scale(1.01);
+      line(200, -150, 50, 150);
+      stroke(#CA59FF);
+      float b = random(20); 
+      rotate(PI/b);
+      scale(1.05);
+      line(150, 150, 90, 250);
+      stroke(#3DFF00);
+      float a = random(30); 
+      rotate(PI/a);
+      scale(1.01);
+      line(150, 150, 90, 150);
+    }
+  }
   strokeWeight(3);
   stroke(#3422EB);
   fill(#FF47AF);
