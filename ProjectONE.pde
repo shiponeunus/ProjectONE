@@ -3,12 +3,13 @@ int h= 0;
 float r= random(100, 255);
 float g= random(100, 255);
 float n= random(100, 255);
-
+int[] numbers = { 50, 150, 200, 80, 170, 250 };
+int[] integers = { 20, 50, 100, 40, 65, 125};
 Object o = new Object( 20, 28);
 Object p = new Object( 200, 23);
 Object u = new Object( 100, 20 );
-Heart beat = new Heart( 200, 80, 50);
-Heart up = new Heart( 600, , ); 
+Heart beat = new Heart( 200);
+Heart up = new Heart( 600); 
 void setup() {
   size( 800, 800);
 }
@@ -30,9 +31,9 @@ void draw() {
       u.then();
     } 
     else if( key == 'g'){
-      p.then();
+      background(255);
       beat.subsequently();
-      
+      up. subsequently();
     }
   }
 }
@@ -223,11 +224,12 @@ void draw() {
   }
 class Heart {
       int xpos, upbeat, downbeat; 
-
-      Heart( int x, int u, int d) {
+      
+      Heart( int x) {
         xpos = x;
-        upbeat = u;
-        downbeat = d;
+        for (int i= 0; i<= 5; i++){
+        upbeat = numbers[i];
+        downbeat = integers[i]; }
       }
       void subsequently() {
         line( xpos, 0, xpos, height);
