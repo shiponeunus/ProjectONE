@@ -34,19 +34,20 @@ void draw() {
       background(255);
       stroke(#E84E64);
       fill(#FFA550);
-   
-        pushMatrix();
-        rotate(19);
-        rect(pmouseX, pmouseY, 30, 30);
-        rect(mouseX-20, mouseY-30, 40, 40);
-        popMatrix();
-        int i=0;
-        while( i<=300){
+
+      pushMatrix();
+      rotate(19);
+      rect(pmouseX, pmouseY, 30, 30);
+      rect(pmouseX-20, pmouseY-20, 20, 20);
+      rect(mouseX-20, mouseY-30, 40, 40);
+      popMatrix();
+      int i=0;
+      while ( i<=300) {
         rect(pmouseX- i, pmouseY-i, 30, 30);
         rect(pmouseX+ i, pmouseY-i, 30, 30);
         i+=20;
-        }
-        rect(mouseX, mouseY, 50, 50);
+      }
+      rect(mouseX, mouseY, 50, 50);
       vert.subsequently();
       hor.succeeding();
     }
@@ -210,6 +211,7 @@ void after() {
   strokeWeight(2);
   stroke(0);
   fill(#FFF4AE);
+  circle(pmouseX+50, pmouseY-30, 14);
   circle( mouseX+50, mouseY-30, 15);
 }
 // creates line, triangle , circle , rectangle that moves with time
