@@ -13,61 +13,22 @@ var vert;
 var next;
 var after;
 
+//arrays used in class Lines functions
+let numbers= [100, 50, 150, 40, 700];
+let integers= [580, 750, 135, 375, 80];
 
-var numbers= [100, 50, 150, 40, 700];
-var integers= [580, 750, 135, 375, 80];
-//starts off with first function that is a triangle with varying line lengths and ellipse dimensions
 function setup() {
   createCanvas( 800, 800);
-   o = new Object( 20, 28);
- p = new Object( 200, 23);
- u = new Object( 100, 20 );
-hor = new Lines();
-vert = new Lines(); 
+  o = new Object( 20, 28);
+  p = new Object( 200, 23);
+  u = new Object( 100, 20 );
+  hor = new Lines();
+  vert = new Lines(); 
 }
-/*
-function draw() {
-  background(0,0,200);
-  beginning(400, 400);
-  if (keyIsPressed) {
-    if ( key == 's') {
-      next();
-    } else if ( key == 'a') {
-      following(mouseX, mouseY);
-    } else if ( key == 'd') {
-      after();
-    } else if ( key == 'f') {
-      background(0);
-      o.then();
-      p.then();
-      u.then();
-    } else if ( key == 'g') {
-      background(255);
-     // stroke(#E84E64);
-      //fill(#FFA550);
-
-      push();
-      rotate(19);
-      rect(pmouseX, pmouseY, 30, 30);
-      rect(pmouseX-20, pmouseY-20, 20, 20);
-      rect(mouseX-20, mouseY-30, 40, 40);
-      pop();
-      var i=0;
-      while ( i<=300) {
-        rect(pmouseX- i, pmouseY-i, 30, 30);
-        rect(pmouseX+ i, pmouseY-i, 30, 30);
-        i+=20;
-      }
-      rect(mouseX, mouseY, 50, 50);
-      vert.subsequently();
-      hor.succeeding();
-    }
-  }
-} */
-
-function beginning(x,y){
+  //starts off with first function that is a triangle with varying line lengths and ellipse dimensions
+function beginning_(){
   strokeWeight(4);
-  frameRate(15);
+ 
   fill(255, 0, 0);
   triangle( 400, 400, 30, 795, 770, 795);
   for ( var i=0; i<100; i++) {
@@ -93,11 +54,9 @@ function beginning(x,y){
   //stroke(#FFCF05);
   stroke( 30, 50, 60);
 }
-
-function next() { 
+// creates a puddle effect based on user interaction
+function next_() { 
   background(0);
-  frameRate(15);
-
   for ( var i= 0; i < 100; i++) {
     //stroke(#CF3046); 
     stroke(200, 0, 0);
@@ -121,8 +80,8 @@ function next() {
   fill(200, 0, 200);
   quad( 380, 385, 420, 385, 380, 415, 420, 415);
 }
-
-function following(x,y) {
+// overlay of light beams on beginning_ function
+function following_(x,y) {
   
   //stroke(#D322EB);
   stroke(100, 100, 100);
@@ -136,11 +95,11 @@ function following(x,y) {
   //stroke(#30C6CF);
   stroke(0, 0, 48);
   //fill(#E8EB87);
-  fill(50, 80, 00;)
+  fill(50, 80, 100);
   quad( 380, 385, 420, 385, 380, 415, 420, 415);
 }
-
-function after() {
+//function creates a room that changes based on mouse interation
+function after_() {
   background(0);
 
  // stroke(#46D14A);
@@ -160,6 +119,7 @@ function after() {
     for ( var i=0; i<100; i++) {
 
       strokeWeight(3);
+      stroke( 0, 30, 140);
       //stroke(#23FFEB); 
       line( x, 500, 350+x, 800); //vertical line
       line(300-x, 550+y, 400+x, 550); // horizontal line
@@ -168,11 +128,14 @@ function after() {
       k= random(-50, 100);
       l = random( 25, 60);
       //fill(#EB213E);
+      stroke( 200, 30, 10);
       circle( 400 + k, 600+k, l);
 
       strokeWeight(3);
       //stroke(#3E2DED);
+      stroke(50, 50, 60);
       //fill(#A1D1C8);
+      fill(150, 150, 160);
       quad(450, 500, 450, 250, 800, 0, 800, 800);
       quad(350, 500, 0, 800, 0, 0, 350, 250);
       quad( 0, 0, 800, 0, 500, 275, 300, 250);
@@ -180,9 +143,11 @@ function after() {
   } 
   if (mouseX -50 >=0 && mouseX<= 300 ) {
     //fill(#A1D16D);
+    fill(70, 150, 24);
     quad(350, 500, 0, 800, 0, 0, 350, 250);
     quad(450, 500, 450, 250, 800, 0, 800, 800);
    // stroke(#FFE100);
+    stroke( 205, 209, 30);
     fill(0);
     ellipse(mouseX+10, mouseY-30, 50, 100);
     ellipse( mouseX+10, mouseY- 30, 45, 90);
@@ -191,9 +156,11 @@ function after() {
   } 
   if ( mouseX-50 >= 400 && mouseX <=800) {
     //fill(#FFB366);
+    fill( 30, 130, 230);
     quad(350, 500, 0, 800, 0, 0, 350, 250);
     quad(450, 500, 450, 250, 800, 0, 800, 800);
    // stroke(#FFE100);
+    stroke( 120, 70, 85);
     fill(0);
     ellipse(mouseX+60, mouseY-30, 50, 100);
     ellipse( mouseX+60, mouseY- 30, 45, 90);
@@ -203,14 +170,19 @@ function after() {
   if ( mouseY-30 <=250 && mouseY-30 >= 0) {
     strokeWeight(3);
    // stroke(#3422EB);
+    stroke( 12, 13, 14);
    // fill(#66FF7D);
+    fill(230, 0, 45);
     quad( 380, 385, 420, 385, 380, 415, 420, 415);
     strokeWeight(2);
     stroke(0);
     //fill(#FFF4AE);
+    fill( 45, 90, 135);
     circle( mouseX+50, mouseY-30, 15);
   //  stroke(#E52BFF);
+    stroke( 200, 200, 208);
   //  fill(#00EEFF);
+    fill( 0, 48, 12);
     quad( 0, 0, 800, 0, 450, 250, 350, 250);
     for (var q = 0; q < 100; q++) {
 
@@ -219,38 +191,43 @@ function after() {
       scale(1.01);
       line(200, -150, 50, 150);
     //  stroke(#CA59FF);
-      var b = random(20); 
-      rotate(PI/b);
+      stroke( 30, 190, 90);
+      var m = random(20); 
+      rotate(PI/m);
       scale(1.05);
       line(150, 150, 90, 250);
    //   stroke(#3DFF00);
-      var a = random(30); 
-      rotate(PI/a);
+      stroke( 150, 15 ,0);
+      var s = random(30); 
+      rotate(PI/s);
       scale(1.01);
       line(150, 150, 90, 150);
     }
   }
   strokeWeight(3);
 //  stroke(#3422EB);
+  stroke( 70, 255, 40);
  // fill(#FF47AF);
+  fill(  12, 138, 210);
   quad( 380, 385, 420, 385, 380, 415, 420, 415);
 
   strokeWeight(2);
   stroke(0);
  // fill(#FFF4AE);
+  fill(36, 72, 144);
   circle(pmouseX+50, pmouseY-30, 14);
   circle( mouseX+50, mouseY-30, 15);
 }
 // creates line, triangle , circle , rectangle that moves with time
 class Object {
   constructor (y,s) {
-
     this.ypos = y;
     this.speed = s;
   }
 
-   then() {
+   then_() {
     //fill( #E52B79);
+     fill( 126, 39, 79);
     this.ypos += speed; 
     if ( mouseX  <=750) {
       quad(mouseX-25, mouseY-25, mouseX+25, mouseY-25, mouseX-25, mouseY+25, mouseX+25, mouseY+25);
@@ -268,7 +245,6 @@ class Object {
 //creates horizontal and vertical lines based on values from arrays
 class Lines {
   constructor( ) {
-
     for (var i=0; i<5; i++) {
       this.xpos = numbers[i];
       this.ypos = integers[i];
@@ -276,11 +252,12 @@ class Lines {
     }
   
   }
-   subsequently() {
+   subsequently_() {
     //square(mouseX, mouseY, 15);
     for (var i=0; i<5; i++) {
       this.xpos = numbers[i];
     //  stroke(#4166FF);
+      stroke(50, 180, 220);
       strokeWeight(2);
       line( this.xpos, 0, this.xpos, height);
       strokeWeight(3);
@@ -289,7 +266,7 @@ class Lines {
       line(this.xpos+10, 0, this.xpos+10, height);
     }
   }
-   succeeding() {
+   succeeding_() {
     for (var i=0; i<5; i++) {
       this.ypos = integers[i];
       strokeWeight(2);
@@ -301,28 +278,29 @@ class Lines {
     }
   }
 }
-
+// goes through different functions based on key input
 function draw() {
 
   background(0,0,200);
-  beginning(400, 400);
+  beginning_();
   if (keyIsPressed) {
     if ( key == 's') {
-      next();
+      next_();
     } else if ( key == 'a') {
-      following(mouseX, mouseY);
+      following_(mouseX, mouseY);
     } else if ( key == 'd') {
-      after();
+      after_();
     } else if ( key == 'f') {
       background(0);
-      o.then();
-      p.then();
-      u.then();
+      o.then_();
+      p.then_();
+      u.then_();
     } else if ( key == 'g') {
       background(255);
      // stroke(#E84E64);
+      stroke( 180, 180, 50);
       //fill(#FFA550);
-
+      fill( 160,30, 50);
       push();
       rotate(19);
       rect(pmouseX, pmouseY, 30, 30);
@@ -336,10 +314,11 @@ function draw() {
         i+=20;
       }
       rect(mouseX, mouseY, 50, 50);
-      vert.subsequently();
-      hor.succeeding();
+      vert.subsequently_();
+      hor.succeeding_();
     }
   }
 }
+
 
 
